@@ -1,0 +1,20 @@
+True Goal of Renderable Streams 
+	- Directly map resource primitives to formatted placement
+	- Provide an in-place representation which aligns domain concepts directly to label each resource primitive
+		- Ex: renderable xml's use of tag, classes, attributes, etc.. make each node a direct representation of their underlying memory
+		- Specifically, data structures able to be simply serialized in memory. This includes all PHP primitives, but few classes. 
+		- Node containers, such as children in RenderXML, may however have complex types such as hashmaps, specialized trees, routing, etc
+		  (in C++/C# these are provided as template/generics arguments)
+		- Renderable media could mean a wide variety of concepts
+			- XML Tags, JSON objects, Spreadsheet rows, CPU cachelines..
+			- Pixels, NxN tile of pixels, 3-D mesh objects, high dimensional manifolds
+			- Screws, nails, boards, pipes, fittings, metal strips, bolts, nuts, perferated railing,..
+			- A series of signals in software resulting in a subsequent series of actions in hardware
+			- The state of a signal tile on a metal sheet, while going through a punch machine on a conveyor belt
+	- Provide the Render Pipeline
+	  A renderable is always going somewhere
+	  When an ordering is obvious, or desired, use it
+	  When no useful ordering is known, sort by the "natural occurence" in the render stream toward its use in output media.
+			- Render Head
+			- Render Corpus
+			- Render Tail
