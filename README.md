@@ -11,13 +11,16 @@ Here's an example of how you might use the HTML class to create a simple layout:
 
 ```
   // Create an HTML object
-  $html = new Approach\Render\HTML();
+  $html = new Approach\Render\HTML(tag: 'html');
   
   // Add a head element
-  $html->addHead('<title>My Website</title>');
+  $html[] = $head = new HTML( tag: 'head', content: '<title>Hello World</title>'); // you can still use string tags in content
   
   // Add a body element
-  $html->addBody('<h1>Welcome to my website!</h1>');
+  $html[] = $body = new HTML( tag: 'body' );
+  $body[] = $main = new HTML( tag: 'div', classes: [ 'myClass' ]);
+
+  $main->content = 'This is a web page';
   
   // Render the HTML document
   echo $html;
@@ -36,38 +39,12 @@ This will output the following HTML:
 </html>
 ```
 
-You can add any valid HTML content to the head or body elements using the addHead() and addBody() methods. You can also nest elements within each other to create more complex layouts.
-
-First, let's create an instance of the HTML class, which represents an HTML element. We'll create the root html element:
-```
-  $html = new HTML('html');
-```
-
-Next, let's create the head element and add it to our html element:
-```
-$webpage->head = new HTML('head');
-```
-
-Inside the head element, let's add a title element:
-```
-$webpage->head->title = new HTML('title');
-```
-
-Now let's move on to the body element. We'll create an instance of the HTML class for the body element, and add it to our html element:
-```
-$body = $webpage->body = new HTML(tag: 'body', classes: [ 'no-margin','no-padding' ]);
-```
-
 Notice that we're using the tag and classes options to specify the tag name and CSS classes for the element. We can also add custom attributes to the element using the attributes option:
 ```
 $body->attributes['data-attr']='special value';
 ```
 
 That's it! You now know the basics of creating an HTML page using the Approach\Render\HTML class. You can continue building out your page by adding more elements and attributes as needed. When you're ready to render the page, just call the __toString method on your html element:
-
-```
-echo $webpage;
-```
 
 
 ===
