@@ -50,7 +50,7 @@ That's it! You now know the basics of creating an HTML page using the Approach\R
 
 ===
 
-More generally, nodes are streaming list processors. The entrypoint function to a application, such as main(), has an ordered list of operations and branching subfunctions, creating the call stack. Similarly, Render Nodes and types that extend from always have both properties and a list of other nodes. By default this forms a DOM-like tree.
+More generally, nodes are streaming list processors. The entrypoint function to a application, such as main(), has an ordered list of operations and branching subfunctions, creating the call stack. Similarly, Render Nodes and types that extend from Node always have both a paylod of public properties and a list of other nodes. By default this forms a DOM-like tree.
 
 
 We want to represent format fragments as close to primitive data structures as possible. Render Nodes are designed to have their properties set directly by. The classes are designed to be extended and specialized as needed. Any input or output format may be represented efficiently as Node types. Nodes, in many ways, are analogs to I/O streams. 
