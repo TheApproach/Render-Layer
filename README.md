@@ -45,7 +45,7 @@ We can also change properties after construction:
 $body->attributes['data-attr']='special value';
 ```
 
-That's it! You now know the basics of creating an HTML page using the Approach\Render\HTML class. You can continue building out your page by adding more elements and attributes as needed. When you're ready to render the page, just call the __toString method on your html element:
+That's it! You now know the basics of creating an HTML page using the Approach\Render\HTML class. You can continue building out your page by adding more elements and attributes as needed. When you're ready to render the page, just echo or print_r your root node.
 
 
 ===
