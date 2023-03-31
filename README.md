@@ -34,7 +34,7 @@ This will output the following HTML:
     <title>My Website</title>
   </head>
   <body>
-    <h1>Welcome to my website!</h1>
+    <div class="myClass">Welcome to my website!</div>
   </body>
 </html>
 ```
