@@ -39,7 +39,8 @@ This will output the following HTML:
 </html>
 ```
 
-Notice that we're using the tag and classes options to specify the tag name and CSS classes for the element. We can also add custom attributes to the element using the attributes option:
+Notice that we're using the tag and classes options to specify the tag name and CSS classes for the element.
+We can also change properties after construction:
 ```
 $body->attributes['data-attr']='special value';
 ```
