@@ -1,7 +1,6 @@
 #include <concepts>
 #include <ios>
 #include <iostream>
-#include <ostream>
 #include <type_traits>
 
 template<typename T>
