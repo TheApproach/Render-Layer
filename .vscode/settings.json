@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.excalidraw": "json",
+    "*.excalidrawlib": "json",
+    ".flaskenv": "bat",
+    "*.rmd": "markdown",
+    "concepts": "cpp"
+  }
+}
+

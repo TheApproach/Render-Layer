@@ -39,7 +39,6 @@ namespace Approach::Render {
 				 *                       */
 
 	/* Strict Typing */
-
 	explicit XML(const std::string &_tag) noexcept : tag(_tag) { XML::SetRenderID(); }
 
 	XML(const std::string &_tag, const std::string &_id) noexcept : tag(_tag), id(_id) { XML::SetRenderID(); }
@@ -149,14 +148,14 @@ namespace Approach::Render {
 	 this->RenderTail(stream);
 	}
 
-	void render(std::ostream &stream)  {
+	void render(std::ostream &stream) {
 	 this->RenderHead(stream);
 	 this->RenderCorpus(stream);
 	 this->RenderTail(stream);
 	}
 
 	/** Outputs this node's tag, id and attributes to the stream. */
-	void RenderHead(std::ostream &stream)  {
+	void RenderHead(std::ostream &stream) {
 	 // stream opening tag
 	 stream << std::endl
 					<< "<";// open tag
@@ -185,7 +184,7 @@ namespace Approach::Render {
 	}
 
 	/** Outputs any child nodes to stream. */
-	void RenderCorpus(std::ostream &stream)  {
+	void RenderCorpus(std::ostream &stream) {
 	 if (!this->nodes.empty())
 		for (auto &node: this->nodes) {
 		 stream << *(XML *) node;
@@ -193,7 +192,7 @@ namespace Approach::Render {
 	}
 
 	/** Outputs closing tag to stream. */
-	void RenderTail(std::ostream &stream)  {
+	void RenderTail(std::ostream &stream) {
 	 stream << std::endl
 					<< "</" << this->tag << ">";
 	}

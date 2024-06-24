@@ -4,7 +4,7 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../render.h"
+#include "approach/Render/render.h"
 #include "doctest.h"
 
 using namespace Approach::Render;

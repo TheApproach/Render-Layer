@@ -10,14 +10,14 @@ include_directories(.)
 include_directories(tests)
 
 add_executable(render
-        container.h
-        main.cpp
-        node.h
-        stream.h
-        xml.h
-        main.cpp
-        streamtype.h
-        render.h
+        approach/Stream/container.h
+        approach/main.cpp
+        approach/Render/node.h
+        approach/Stream/stream.h
+        approach/Render/xml.h
+        approach/main.cpp
+        approach/Stream/streamtype.h
+        approach/Render/render.h
 )
 
 add_executable(render_test
