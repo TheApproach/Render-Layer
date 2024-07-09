@@ -1,14 +1,5 @@
 #include "node.h"
 
-/*
- * . List
- * 	. Sublist1
- * 	. SubList2
- * 		. Sublist2.1
- * 			. Sublist2.1.1
- * 				. Sublist2.1.1.1
- * 	. Sublist3
- * */
 namespace Approach::Render {
  class Outline : public Node {
  private:
@@ -17,7 +8,7 @@ namespace Approach::Render {
  public:
 	int depth = 0;
 
-	void RenderHead(std::ostream &stream) {
+	void RenderHead(std::ostream &stream) override {
 	 for (size_t i = 0; i < depth; i++) {
 		stream << '\t';
 	 }
@@ -31,13 +22,6 @@ namespace Approach::Render {
 		t->depth = this->depth + 1;
 		stream << t;
 	 }
-	}
-
-	// not needed, to be fixed
-	void render(std::ostream &stream) override {
-	 this->RenderHead(stream);
-	 this->RenderCorpus(stream);
-	 this->RenderTail(stream);
 	}
 
 	explicit Outline(const std::string &content) {
