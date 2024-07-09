@@ -58,13 +58,20 @@ namespace Approach::Render {
 	 }
 	}
 
-	virtual void render(std::ostream &stream) {
+	void render(std::ostream &stream) {
 	 this->RenderHead(stream);
 	 this->RenderCorpus(stream);
 	 this->RenderTail(stream);
 	}
 
+	virtual void RenderHead(std::ostream &stream) {
+	}
+
+	virtual void RenderTail(std::ostream &stream) {
+	}
+
 	virtual void RenderCorpus(std::ostream &stream) {
+	 stream << this->content << '\n';
 	 for (auto &node: this->nodes) {
 		stream << node;
 	 }
@@ -126,10 +133,24 @@ namespace Approach::Render {
 	 to.content += node;
 	 return to;
 	}
+	/************************
+				 *   STREAM OPERATORS    *
+				 *                       */
 
-	inline friend Container &operator<<(Container &to, const char *node) {
-	 to.content += node;
-	 return to;
+	/** Funky XML>>cout syntax, works in situations without the non-member friend
+				 */
+	void operator>>(std::ostream &stream) { this->render(stream); }
+
+	/** Supports "normal" syntax cout<<XML; is not really a member function */
+	friend std::ostream &operator<<(std::ostream &stream, Container &obj) {
+	 obj.render(stream);
+	 return stream;
+	}
+
+	/** Supports "normal" syntax cout<<XML; is not really a member function */
+	friend std::ostream &operator<<(std::ostream &stream, Container *obj) {
+	 obj->render(stream);
+	 return stream;
 	}
  };
 }// namespace Approach::Render

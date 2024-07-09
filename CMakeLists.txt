@@ -11,11 +11,20 @@ include_directories(tests)
 
 add_executable(render
         approach/Stream/container.h
-        approach/main.cpp
         approach/Render/node.h
         approach/Stream/stream.h
         approach/Render/xml.h
         approach/main.cpp
+        approach/Stream/streamtype.h
+        approach/Render/render.h
+)
+
+add_executable(outline_main
+        approach/Stream/container.h
+        approach/Render/node.h
+        approach/Stream/stream.h
+        approach/Render/outline.h
+        approach/outline_main.cpp
         approach/Stream/streamtype.h
         approach/Render/render.h
 )

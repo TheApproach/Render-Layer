@@ -148,14 +148,8 @@ namespace Approach::Render {
 	 this->RenderTail(stream);
 	}
 
-	void render(std::ostream &stream) {
-	 this->RenderHead(stream);
-	 this->RenderCorpus(stream);
-	 this->RenderTail(stream);
-	}
-
 	/** Outputs this node's tag, id and attributes to the stream. */
-	void RenderHead(std::ostream &stream) {
+	void RenderHead(std::ostream &stream) override {
 	 // stream opening tag
 	 stream << std::endl
 					<< "<";// open tag
@@ -168,11 +162,9 @@ namespace Approach::Render {
 	 // stream attributes
 	 if (!this->attributes.empty())// if node has attributes
 	 {
-		for (auto attribute = this->attributes.begin();
-				 attribute != this->attributes.end();
-				 ++attribute)// for each attribute
+		for (auto & attribute : this->attributes)// for each attribute
 		{
-		 stream << " " << attribute->first << "=\"" << attribute->second
+		 stream << " " << attribute.first << "=\"" << attribute.second
 						<< "\"";// output attribute to stream
 		}
 	 }
@@ -184,7 +176,7 @@ namespace Approach::Render {
 	}
 
 	/** Outputs any child nodes to stream. */
-	void RenderCorpus(std::ostream &stream) {
+	void RenderCorpus(std::ostream &stream) override {
 	 if (!this->nodes.empty())
 		for (auto &node: this->nodes) {
 		 stream << *(XML *) node;
@@ -192,23 +184,9 @@ namespace Approach::Render {
 	}
 
 	/** Outputs closing tag to stream. */
-	void RenderTail(std::ostream &stream) {
+	void RenderTail(std::ostream &stream) override {
 	 stream << std::endl
 					<< "</" << this->tag << ">";
-	}
-
-	/************************
-				 *   STREAM OPERATORS    *
-				 *                       */
-
-	/** Funky XML>>cout syntax, works in situations without the non-member friend
-				 */
-	void operator>>(std::ostream &stream) { this->render(stream); }
-
-	/** Supports "normal" syntax cout<<XML; is not really a member function */
-	friend std::ostream &operator<<(std::ostream &stream, XML &obj) {
-	 obj.render(stream);
-	 return stream;
 	}
  };
 }// namespace Approach::Render

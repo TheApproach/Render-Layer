@@ -15,12 +15,19 @@ namespace Approach::Render {
 	 this->SetRenderID();
 	};
 
-	inline friend Node &operator<<(Node &to, Node &node) {
+	void RenderCorpus(std::ostream &stream) override {
+	 stream << this->content << '\n';
+	 for (auto c: this->nodes) {
+		stream << (Node *) c;
+	 }
+	}
+
+	inline friend Container &operator<<(Container &to, Stream &node) {
 	 to.nodes.push_back(&node);
 	 return to;
 	}
 
-	inline friend Node &operator<<(Node &to, Node *node) {
+	inline friend Container &operator<<(Container &to, Stream *node) {
 	 to.nodes.push_back(node);
 	 return to;
 	}
